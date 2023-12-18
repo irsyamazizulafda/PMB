@@ -1,0 +1,52 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 100px;
+    padding: 0;
+}
+
+.main {
+    height: 100vh;
+}
+
+.nav-item {
+    padding: 10px !important;
+}
+
+.nav-link:hover {
+    color: black;
+    font-weight: bold;
+}
+
+.nav-link.active {
+    color: black !important;
+}
+
+.card-data{
+    border: 1px solid;
+    padding: 20px 50px;
+    color: white;
+    border-radius: 20px;
+}
+
+.card-data.fashion{
+    background-color: #0D6EFD;
+}
+
+.card-data.category{
+    background-color: #a50dfd;
+}
+
+.card-data.user{
+    background-color: #fda90d;
+}
+
+.card-data i{
+   font-size: 80px;
+}
+.card-desc{
+    font-size: 30px;
+}
+
+.card-count{
+    font-size: 25px;
+}

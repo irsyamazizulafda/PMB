@@ -1,0 +1,239 @@
+/* --------------Common Style CSS--------------- */
+.common-style {
+    margin-top: 15px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+/* .container {
+    background-color: aliceblue;
+} */
+
+/* -----------------Navbar CSS------------------- */
+.navigasi-web {
+    position: relative;
+    margin-bottom: 60px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+.navbar-nav.nav-underline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.navbar-nav.nav-underline .nav-item {
+    margin-right: 15px;
+}
+
+.navbar-nav.nav-underline .nav-link {
+    position: relative;
+    color: #666;
+    text-decoration: none;
+}
+
+.navbar-nav.nav-underline .nav-link::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background-color: rgba(102, 200, 255, 0.80);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.navbar-nav.nav-underline .nav-link:hover::after {
+    opacity: 1;
+}
+
+.contact {
+    display: flex;
+}
+
+.custom-button {
+    flex: 1;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    margin-right: 10px;
+    width: 140px;
+}
+
+.custom-button:last-child {
+    margin-right: 0;
+}
+
+.btn-outline-dark.custom-button {
+    color: #212529;
+    background-color: #f8f9fa;
+    border-color: #212529;
+}
+
+.btn-primary.custom-button {
+    color: #fff;
+    background-color: rgba(102, 200, 255, 0.80);
+    border-color: rgba(102, 200, 255, 0.80);
+}
+
+/* -----------------Home CSS------------------- */
+.home-web {
+    margin-top: 80px;
+    margin-bottom: 150px;
+}
+
+.row {
+    display: flex;
+    align-items: center;
+}
+
+.col {
+    flex-basis: 50%;
+}
+
+.custom-image-home {
+    width: 660px;
+    height: 650px;
+}
+
+.typography-tittle {
+    color: #333;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.typography-text {
+    color: #595959;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.custom-button-home {
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 10px;
+    display: inline-flex;
+    padding: 15px;
+    align-items: flex-start;
+}
+
+.custom-button-home:last-child {
+    margin-right: 0;
+}
+
+.custom-button-home {
+    color: #666;
+    background-color: #fff;
+    border-color: #fff;
+}
+
+.btn-primary.custom-button-home {
+    color: #fff;
+    background-color: rgba(102, 200, 255, 0.80);
+    border-color: rgba(102, 200, 255, 0.80);
+}
+
+.button-icon {
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+
+/* -----------------Service CSS------------------- */
+
+.service-web {
+    margin-bottom: 150px;
+}
+
+.typography-tittle-service {
+    color: #333;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+}
+
+.typography-text-service {
+    color: #595959;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-align: center;
+}
+
+.card-style {
+    margin-top: 20px;
+    width: 100%;
+    height: 720px;
+}
+
+.custom-card-img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+}
+
+.costume-card-tittle {
+    color: #333;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.costume-card-text {
+    color: #595959;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.costume-card-footer {
+    color: #FF7EC4;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+}
+
+.card .costume-card-footer {
+    position: absolute;
+    bottom: 0;
+    width: 80%;
+    padding: 10px;
+    background-color: #fff;
+}
+
+
+/* -----------------Footer Us CSS------------------- */
+#footer-web {
+    bottom: 0;
+    width: 100%;
+    background-color: #ffffff; /* Ganti dengan warna latar belakang yang diinginkan */
+    box-shadow: 0px -2px 10px rgba(0, 0, 0, 0.1); /* Efek bayangan untuk memisahkan footer dari konten di atasnya */
+    z-index: 1000; /* Sesuaikan dengan kebutuhan Anda */
+}
+
+.footer-web {
+    padding: 20px; /* Sesuaikan dengan kebutuhan Anda */
+}
+
+.custome-big-footer {
+    font-size: 24px; /* Sesuaikan dengan kebutuhan Anda */
+    margin: 0; /* Hilangkan margin bawaan jika diperlukan */
+}
