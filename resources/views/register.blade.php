@@ -25,9 +25,14 @@
                         <form action="" method="POST">
                             @csrf
                             <div class="form-group mb-3">
-                                <label for="username">Username</label>
-                                <input type="text" class="form-control" id="username" name="username"
-                                    placeholder="Enter username" required>
+                                <label for="name">Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Enter yourname" required>
+                            </div>
+                            <div class="form-group mb-3">
+                                <label for="email">Email</label>
+                                <input type="text" class="form-control" id="email" name="email"
+                                    placeholder="Enter email" required>
                             </div>
                             <div class="form-group mb-3">
                                 <label for="password">Password</label>

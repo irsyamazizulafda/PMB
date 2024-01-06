@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -23,7 +24,7 @@ class AuthController extends Controller
     public function authenticating(Request $request)
     {
         $credentials = $request->validate([
-            'username' => ['required'],
+            'email' => ['required', 'string', 'email'],
             'password' => ['required'],
         ]);
 
@@ -48,7 +49,7 @@ class AuthController extends Controller
                 return redirect('dashboard');
             }
             if (Auth::user()->role_id == 2) {
-                return redirect('profile');
+                return redirect()->route('home');
             }
 
             // return redirect()->intended('dashboard');
@@ -70,15 +71,26 @@ class AuthController extends Controller
     public function registerProcess(Request $request)
     {
         $validated = $request->validate([
-            'username' => 'required|unique:users|max:255',
+            'name' => 'required|unique:users|max:255',
+            'email' =>  ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => 'required|max:255',
-            'phone' => 'max:255',
+            'phone' => 'required|max:255',
         ]);
+        $clientRole = Role::where('name', 'client')->first();
+        $user = User::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'password' => Hash::make($request->input('password')),
+            'phone' => $request->input('phone'),
+            'role_id' => $clientRole->id,
 
+        ]);
+        //===========================ini yg lama =======================
         // $request->password = Hash::make($request->password);
-        $request->merge(['password' => Hash::make($request->password)]);
-        $user = User::create($request->all());
-
+        // $request->merge(['password' => Hash::make($request->password)]);
+        // $user = User::create($request->all());
+               //===========================ini yg lama =======================
+        // $user->save();
         Session::flash('status', 'success');
         Session::flash('message', 'Register success, wait admin approval!');
 

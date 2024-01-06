@@ -21,7 +21,7 @@
         <thead>
             <tr>
                 <th class="col-sm-1">No.</th>
-                <th class="col-sm-5">Username</th>
+                <th class="col-sm-5">Email</th>
                 <th class="col-sm-3">Phone</th>
                 <th class="col-sm-3">Action</th>
             </tr>
@@ -30,7 +30,7 @@
             @foreach ($bannedUsers as $item)
             <tr>
                 <td>{{ $loop->iteration }}</td>
-                <td>{{ $item->username }}</td>
+                <td>{{ $item->email }}</td>
                 <td>
                     @if ($item->phone)
                     {{ $item->phone }}

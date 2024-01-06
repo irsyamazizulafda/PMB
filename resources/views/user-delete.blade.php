@@ -9,7 +9,7 @@
     @csrf
     @method('DELETE')
     <h3 class="card-title m-5 text-center">
-        Are you sure to delete user <b>{{ $user->username }}</b>?</h3>
+        Are you sure to delete user <b>{{ $user->email }}</b>?</h3>
 
     <div class="card-body mb-5">
         <button class="btn btn-danger me-5" type="submit">Sure Delete</button>

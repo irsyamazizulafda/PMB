@@ -7,11 +7,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 
+
 class UserController extends Controller
 {
     public function profile()
     {
-       
+
         return view('profile');
     }
 
@@ -21,7 +22,7 @@ class UserController extends Controller
 
         $users = User::where('role_id', 2)->where([
             ['status', 'active'],
-            ['username', 'LIKE', '%' . $keyword . '%']
+            ['email', 'LIKE', '%' . $keyword . '%']
         ])
             ->paginate(10);
         return view('user', ['users' => $users]);
@@ -36,7 +37,7 @@ class UserController extends Controller
     public function show($slug)
     {
         $user = User::where('slug', $slug)->first();
-       
+
         return view('user-detail', ['user' => $user]);
     }
 
@@ -92,31 +93,30 @@ class UserController extends Controller
     public function edit($slug)
     {
         $user = User::where('slug', $slug)->first();
-    
+
         return view('edit-user', ['user' => $user]);
     }
-    
+
     public function update(Request $request, $slug)
     {
         $user = User::where('slug', $slug)->first();
-    
+
         // Validate the form data as needed
-        $request->validate([
-            'username' => 'required|string|max:255',
+        $validasi = $request->validate([
+            'name' => 'required|string|max:255',
             'phone' => 'required|string|max:15',
             'address' => 'required|string|max:255',
             // Add more validation rules as needed
         ]);
-    
+
         // Update the user information
-        $user->update([
-            'username' => $request->input('username'),
-            'phone' => $request->input('phone'),
-            'address' => $request->input('address'),
-            // Update more fields as needed
-        ]);
-    
+        $user->update($validasi);
+
         return redirect('user-detail/' . $slug)->with('status', 'User Updated Successfully!');
     }
-    
+    public function dashboardUser()
+    {
+        return view('dashboard-user');
+    }
+
 }

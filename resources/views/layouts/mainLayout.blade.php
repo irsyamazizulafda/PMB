@@ -1,5 +1,10 @@
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -23,49 +28,61 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <ul class="navbar-nav">
-                        @if (Auth::User())
+                        @auth
 
-                        @if (Auth::User()->role_id === 1)
-                        <li class="nav-item">
-                            <a href="/dashboard"
-                                class="nav-link @if (request()->route()->uri == 'dashboard') active @endif">Dashboard</a>
-                        </li>
-                        
-                        <li class="nav-item">
-                            <a href="/users" class="nav-link @if (in_array(request()->route()->uri, [
-                                                    'users',
-                                                    'registered-users',
-                                                    'user-approve/{slug}',
-                                                    'user-ban/{slug}',
-                                                    'user-deleted',
-                                                ])) active @endif">Users</a>
-                        </li>
-                        
-                        <li class="nav-item ml-auto">
-                            <a href="/logout" class="nav-link">Logout</a>
-                        </li>
-                        @else
-                        
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Settings
-                            </a>
-                            <ul class="dropdown-menu">
+                            @if (Auth::user()->role_id === 1)
+                                <li class="nav-item">
+                                    <a href="/dashboard" class="nav-link @if (request()->route()->uri == 'dashboard') active @endif">Dashboard</a>
+                                </li>
+
+                                <li class="nav-item">
+                                    <a href="/users" class="nav-link @if (in_array(request()->route()->uri, [
+                                        'users',
+                                        'registered-users',
+                                        'user-approve/{slug}',
+                                        'user-ban/{slug}',
+                                        'user-deleted',
+                                    ])) active @endif">Users</a>
+                                </li>
+
                                 <li class="nav-item ml-auto">
-                                    <a href="/formulir" class="nav-link">Profile</a>
+                                <form action="{{ route('logout') }}" method="post">
+                                    @csrf
+                                    <button type="submit" class="btn btn-outline-light custom-button">LOGOUT</button>
+                                </form>
+                                </li>
+
+                            @else
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Settings
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li class="nav-item ml-auto">
+                                            <a href="/formulir" class="nav-link">Profile</a>
+                                        </li>
+                                        <form action="{{ route('logout') }}" method="post">
+                                            @csrf
+                                            <button type="submit" class="btn btn-outline-danger custom-button">LOGOUT</button>
+                                        </form>
+                                    </ul>
                                 </li>
                                 <li class="nav-item ml-auto">
-                                    <a href="/logout" class="nav-link">Logout</a>
+                                    {{-- <a href="/logout" class="nav-link">Hallo {{ Auth::user()->username }}</a> --}}
+                                    <div ><a href="{{ route('history.index') }}" class="nav-link text-dark"> History</a></div>
                                 </li>
-                            </ul>
-                        </li>
-                        @endif
+                                <li class="nav-item ml-auto">
+                                    {{-- <a href="/logout" class="nav-link">Hallo {{ Auth::user()->username }}</a> --}}
+                                    <div class="nav-link text-white">Hallo, {{ Auth::user()->name }}</div>
+                                </li>
+                            @endif
+
                         @else
-                        <li class="nav-item">
-                            <a href="/login" class="nav-link">Login</a>
-                        </li>
-                        @endif
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Login</a>
+                            </li>
+                        @endauth
+
                     </ul>
                 </div>
             </div>

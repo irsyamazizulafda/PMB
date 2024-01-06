@@ -3,6 +3,9 @@
 @section('title', 'Dashboard')
 
 @section('content')
+@php
+    use Illuminate\Support\Facades\Auth;
+@endphp
 
 <h1 class="mb-5">Welcome, {{ Auth::user()->username }}</h1>
 

@@ -24,8 +24,8 @@
         @method('PUT')
 
         <div class="mb-3">
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" value="{{ $user->username }}"
+            <label for="name" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}"
                 required>
         </div>
         <div class="mb-3">
@@ -42,7 +42,7 @@
         <button type="submit" class="btn btn-primary">Update User</button>
     </form>
     <br>
-    
+
 </div>
 </div>
 @endsection

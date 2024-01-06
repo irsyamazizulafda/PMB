@@ -22,10 +22,13 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'username',
+        'name',
+        'email',
         'password',
         'phone',
         'address',
+        'slug',
+        'status',
     ];
 
     /**
@@ -55,8 +58,14 @@ class User extends Authenticatable
     {
         return [
             'slug' => [
-                'source' => 'username'
+                'source' => 'name'
             ]
         ];
     }
+// Di dalam model User
+    public function formulirs()
+    {
+        return $this->hasMany(Formulir::class);
+    }
+
 }

@@ -163,6 +163,7 @@ return [
         Illuminate\Translation\TranslationServiceProvider::class,
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -177,6 +178,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        
+
     ],
 
     /*
@@ -190,8 +193,10 @@ return [
     |
     */
 
-    'aliases' => Facade::defaultAliases()->merge([
-        // ...
-    ])->toArray(),
+    'aliases' => [
+    // Other aliases...
+
+    'PDF' => Barryvdh\DomPDF\ServiceProvider::class,
+],
 
 ];
